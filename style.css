@@ -1,44 +1,48 @@
-body{
-    display: flex;
-    justify-content: center;
-    align-items: center ;
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
 }
 
-form{
-    display: flex;
-    flex-direction: column;
-    justify-content:space-around;
-    margin-top: 40px;
-    height: 20vh;
-    padding: 10px;
+input {
+  font-size: 1.05rem;
 }
 
-form .login{
-    height: 20vh;
-    display: flex;
-    align-items: stretch;
-    justify-content: space-evenly;
+.login {
+  /* height: 0vh; */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-around;
+}
+.login button {
+  margin-top: 20px;
+}
+.register button {
+  margin-top: 20px;
 }
 
-form .register{
-    height: 20vh;
-    display: flex;
-    align-items: stretch;
-    justify-content: space-around;
+.register {
+  /* height: 65vh; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
-.container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;  
-    width: 25%;
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 30vw;
+  /* height: 30vh; */
 }
 
-.log-reg-container{
-    display: flex;
-    width: 30vw;
-    flex-direction: column;
-    justify-content: space-between;
-    /* align-items:; */
+label {
+  margin: 10px 0 3px 0;
+}
+
+.container a {
+  cursor: pointer;
+  text-decoration: underline;
+  color: rgb(16, 146, 232);
 }
