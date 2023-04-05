@@ -1,0 +1,44 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center ;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+    margin-top: 40px;
+    height: 20vh;
+    padding: 10px;
+}
+
+form .login{
+    height: 20vh;
+    display: flex;
+    align-items: stretch;
+    justify-content: space-evenly;
+}
+
+form .register{
+    height: 20vh;
+    display: flex;
+    align-items: stretch;
+    justify-content: space-around;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;  
+    width: 25%;
+}
+
+.log-reg-container{
+    display: flex;
+    width: 30vw;
+    flex-direction: column;
+    justify-content: space-between;
+    /* align-items:; */
+}
