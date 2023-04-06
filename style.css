@@ -1,44 +1,201 @@
-body{
+body {
     display: flex;
     justify-content: center;
-    align-items: center ;
+  align-items: center;
+  font-size: 1.2rem;
+  box-sizing: border-box;
+  margin:0 !important;
 }
 
-form{
-    display: flex;
-    flex-direction: column;
-    justify-content:space-around;
-    margin-top: 40px;
-    height: 20vh;
-    padding: 10px;
+input {
+  font-size: 1.05rem;
 }
 
-form .login{
-    height: 20vh;
+.login {
+  /* height: 0vh; */
     display: flex;
+  flex-direction: column;
     align-items: stretch;
-    justify-content: space-evenly;
+  justify-content: space-around;
+  width: 30vw;
+}
+.login button {
+  margin-top: 20px;
+}
+.register button {
+  margin-top: 20px;
 }
 
-form .register{
-    height: 20vh;
+.register {
+  /* height: 65vh; */
     display: flex;
-    align-items: stretch;
+  flex-direction: column;
     justify-content: space-around;
+  width: 30vw;
 }
 
-.container{
+.container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+  /* height: 30vh; */
+}
+
+label {
+  margin: 10px 0 3px 0;
+}
+
+.container a {
+  cursor: pointer;
+  text-decoration: underline;
+  color: rgb(16, 146, 232);
+}
+
+.required:after {
+  content: " *";
+  font-size: 14px;
+  color: rgb(204, 45, 45);
+}
+
+.users-header {
+  display: flex;
+  justify-content: space-between;
     align-items: center;  
-    width: 25%;
+  height: 70px;
 }
 
-.log-reg-container{
+.logout-div {
     display: flex;
-    width: 30vw;
     flex-direction: column;
-    justify-content: space-between;
-    /* align-items:; */
+  justify-content: center;
+  align-items: flex-end;
+  height: 100%;
+}
+.header-div {
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: flex-start;
+    height: 100%;
+}
+
+#user-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 42vw;
+}
+#user-details .users-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-start;
+  width: 100%;
+}
+
+/* table1 */
+
+.tg {
+  border-collapse: collapse;
+  border-color: #bbb;
+  border-spacing: 0;
+}
+.tg td {
+  cursor: pointer;
+  background-color: #e0ffeb;
+  border-color: #bbb;
+  border-style: solid;
+  border-width: 1px;
+  color: #594f4f;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  overflow: hidden;
+  padding: 10px 5px;
+  word-break: normal;
+}
+
+.tg td:hover {
+  background-color: #a7e2bc;
+}
+
+.tg th {
+  background-color: #9de0ad;
+  border-color: #bbb;
+  border-style: solid;
+  border-width: 1px;
+  color: #493f3f;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  overflow: hidden;
+  padding: 10px 5px;
+  word-break: normal;
+}
+.tg .tg-0pky {
+  border-color: inherit;
+  text-align: left;
+  vertical-align: top;
+  font-weight: bold;
+}
+
+/* table 2 */
+.tg1 {
+  border-collapse: collapse;
+  border-color: #93a1a1;
+  border-spacing: 0;
+}
+.tg1 td {
+  background-color: #fdf6e3;
+  border-color: #93a1a1;
+  border-style: solid;
+  border-width: 1px;
+  color: #002b36;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  overflow: hidden;
+  padding: 10px 5px;
+  word-break: normal;
+  text-align: center;
+
+}
+.tg1 th {
+  background-color: #657b83;
+  border-color: #93a1a1;
+  border-style: solid;
+  border-width: 1px;
+  color: #fdf6e3;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  overflow: hidden;
+  padding: 10px 5px;
+  word-break: normal;
+}
+.tg1 .tg-58k6 {
+  background-color: #657b83;
+  border-color: inherit;
+  color: #fdf6e3;
+  text-align: left;
+  vertical-align: top;
+}
+.tg1 .tg-0pky {
+  border-color: inherit;
+  text-align: left;
+  vertical-align: top;
+}
+.tg1 .tg-gizb {
+  background-color: #fdf6e3;
+  border-color: inherit;
+  text-align: left;
+  vertical-align: bottom;
+}
+.tg1 .tg-0qnl {
+  background-color: #657b83;
+  color: #fdf6e3;
+  text-align: left;
+  vertical-align: top;
+}
+.tg1 .tg-0lax {
+  text-align: left;
+  vertical-align: top;
 }
