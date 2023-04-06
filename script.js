@@ -16,16 +16,21 @@ function showRegister(){
 
 function register(e) {
   e.preventDefault();
-  let email = document.getElementById("reg");
+  let email = document.getElementById("reg-email");
+  let username = document.getElementById("reg-username");
+  let firstname = document.getElementById("reg-firstname");
+  let lastname = document.getElementById("reg-lastname");
+  let gender = document.getElementById("reg-gender");
+  let department = document.getElementById("reg-dept");
   let pass1 = document.getElementById("pass1");
   let pass2 = document.getElementById("pass2");
-  let department = document.getElementById("reg-dept");
 
-  // function selectDept(dept){
-  //     department = dept;
-  // }
+  let regForm = document.getElementById("register-check");
+  if (!regForm.checkValidity()) {
+    regForm.reportValidity();
+    return;
+  }
 
-  console.log(email.value, pass1.value, pass2.value, department.value);
   if (pass1.value !== pass2.value) {
     alert("Passwords doesn't match");
     pass1.value = "";
@@ -45,16 +50,37 @@ function register(e) {
       ...JSON.parse(localStorage.getItem("users") || "[]"),
       {
         email: email.value,
-        password: pass1.value,
+        username: username.value,
+        firstname: firstname.value,
+        lastname: lastname.value,
+        gender: gender.value,
         department: department.value,
+        password: pass1.value,
       },
     ])
   );
 
+  console.log(
+    email.value,
+    username.value,
+    firstname.value,
+    lastname.value,
+    gender.value,
+    department.value,
+    pass1.value,
+    pass2.value
+  );
+
   alert("You are registered successfully");
+  email.value = "";
+  username.value = "";
+  firstname.value = "";
+  lastname.value = "";
+  gender.value = "";
   pass1.value = "";
   pass2.value = "";
-  email.value = "";
+
+  showLogin();
 }
 
 function login(e) {
