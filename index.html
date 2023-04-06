@@ -7,40 +7,182 @@
     <link rel="stylesheet" href="style.css" />
     <title>User-Auth</title>
   </head>
+
   <body>
     <div class="container">
-        <h3>Login/register</h3>
-        <div class="log-reg-container">
-            <form class="login" id="login">
-              <label for="login">Login</label>
-              <input type="email" id="login-email" placeholder="email or username" />
+      <!-- Login form -->
+      <div id="login">
+        <h3>Login</h3>
+        <form class="login" id="login-check" autocomplete="on">
+          <label class="required" for="login-email">Email</label>
+          <input
+            type="email"
+            id="login-email"
+            placeholder="email or username"
+            required
+            autofocus
+          />
               <!-- <select name="dept" id="login-dept" placeholder="department" onchange="selectDept(this.value)" >
                 <option value="admin">Admin</option>
                 <option value="operations">Operations</option>
                 <option value="sales">Sales</option>
               </select> -->
-              <input type="password" id="password" placeholder="password" />
+          <label class="required" for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            placeholder="password"
+            required
+          />
               <button type="submit" onclick="login(event)">Login</button>
             </form>
+        <p id="register-prompt">
+          new user? <a onclick="showRegister()">Register</a>
+        </p>
+      </div>
 
-            <p id="register-prompt">new user? <a><button onclick="showRegister()">register</button></a></p>
-            <!-- onchange="selectDept(this.value) -->
-            <form id="register" class="register">
-              <label for="login">Register</label>
-              <input type="email" id="reg" placeholder="email" />
-              <input type="text" id="reg-username" placeholder="username" />
-              <input type="text" id="reg-firstname" placeholder="first name" />
-              <input type="text" id="reg-lastname" placeholder="last name" />
-              <input type="text" id="reg-gender" placeholder="gender" />
-              <select name="dept" id="reg-dept" placeholder="department">
+      <!-- Register form -->
+      <div id="register">
+        <h3>Register</h3>
+        <form class="register" id="register-check" autocomplete="on">
+          <label class="required" for="login">Email</label>
+          <input
+            type="email"
+            id="reg-email"
+            placeholder="example@gmail.com"
+            required
+            autofocus
+          />
+
+          <label class="required" for="reg-username">Username</label>
+          <input type="text" id="reg-username" placeholder="johndoe" required />
+
+          <label class="required" for="reg-firstname">Firstname</label>
+          <input type="text" id="reg-firstname" placeholder="John" required />
+
+          <label for="reg-lastname">Lastname</label>
+          <input type="text" id="reg-lastname" placeholder="Doe" />
+
+          <label class="required" for="reg-gender">Gender</label>
+          <!-- <input type="text" id="reg-gender" placeholder="gender" /> -->
+          <select
+            name="reg-gender"
+            id="reg-gender"
+            placeholder="gender"
+            required
+          >
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="none">Prefer not to say</option>
+          </select>
+
+          <label class="required" for="reg-dept">Department</label>
+          <select name="dept" id="reg-dept" placeholder="department" required>
                 <option value="admin">Admin</option>
                 <option value="operations">Operations</option>
                 <option value="sales">Sales</option>
               </select>
-              <input type="password" id="pass1" placeholder="password" />
-              <input type="password" id="pass2" placeholder="re-enter password" />
+
+          <label class="required" for="pass1">Password</label>
+          <input type="password" id="pass1" placeholder="password" required />
+
+          <label class="required" for="pass2">Confirm password</label>
+          <input
+            type="password"
+            id="pass2"
+            placeholder="re-enter password"
+            required
+          />
+
               <button type="submit" onclick="register(event)">Register</button>
             </form>
+        <p id="login-prompt">
+          Already a user? <a onclick="showLogin()">Login</a>
+        </p>
+      </div>
+
+      <!-- Users list -->
+      <div id="users">
+        <div class="users-header">
+          <h3>Users</h3>
+          <p id="logged-in-as-1"></p>
+          <a onclick="logoutUser()" class="">Logout</a>
+        </div>
+        <div id="users-container">
+          <!-- <ul id="users-list">
+            <li>${i}</li>
+            <li>email, username, firstname, lastname,gender, department</li>
+          </ul> -->
+          <table class="tg" style="table-layout: fixed; width: 1066px">
+            <colgroup>
+              <col style="width: 60px" />
+              <col style="width: 200px" />
+              <col style="width: 120px" />
+              <col style="width: 120px" />
+              <col style="width: 120px" />
+              <col style="width: 120px" />
+              <col style="width: 120px" />
+            </colgroup>
+            <thead>
+              <tr>
+                <th class="tg-0pky">Sr No.</th>
+                <th class="tg-0pky">Email</th>
+                <th class="tg-0pky">Username</th>
+                <th class="tg-0pky">Firstname</th>
+                <th class="tg-0pky">Lastname</th>
+                <th class="tg-0pky">Gender</th>
+                <th class="tg-0pky">Department</th>
+              </tr>
+            </thead>
+            <tbody id="users-list"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- User details -->
+      <div id="user-details">
+        <div class="users-header">
+          <div class="header-div">
+            <h3 style="margin: 0 !important;" id="user-details-heading">User details</h3>
+            <a style="font-size: 15px;" onclick="goBack()" id="go-back">&#8617; &nbsp; Go back</a>
+          </div>
+          <div style="font-size: 15px" class="logout-div">
+            <p style="margin: 0 !important;" id="logged-in-as-2"></p>
+            <a onclick="logoutUser()" class="">Logout</a>
+          </div>
+        </div>
+        <table class="tg1" style="table-layout: fixed; width: 316px">
+          <colgroup>
+            <col style="width: 150px" />
+            <col style="width: 300px" />
+          </colgroup>
+          <tbody>
+            <tr>
+              <td class="tg-58k6">Email</td>
+              <td class="tg-gizb" id="user-details-email"></td>
+            </tr>
+            <tr>
+              <td class="tg-58k6">Username</td>
+              <td class="tg-0pky" id="user-details-username"></td>
+            </tr>
+            <tr>
+              <td class="tg-0qnl">Firstname</td>
+              <td class="tg-0lax" id="user-details-firstname"></td>
+            </tr>
+            <tr>
+              <td class="tg-0qnl">Lastname</td>
+              <td class="tg-0lax" id="user-details-lastname"></td>
+            </tr>
+            <tr>
+              <td class="tg-0qnl">Gender</td>
+              <td class="tg-0lax" id="user-details-gender"></td>
+            </tr>
+            <tr>
+              <td class="tg-0qnl">Department</td>
+              <td class="tg-0lax" id="user-details-department"></td>
+            </tr>
+          </tbody>
+        </table>
         </div>
     </div>
 
