@@ -84,10 +84,61 @@ function register(e) {
 }
 
 function login(e) {
-//   e.preventDefault();
-  let users = Array.from(JSON.parse(localStorage.getItem("users")));
-  console.log('users :>> ', JSON.stringify(users));
-  let email = document.getElementById("login");
-  let pass = document.getElementById("pass");
-  let department = document.getElementById("login-dept");
+  e.preventDefault();
+  let email = document.getElementById("login-email");
+  let pass = document.getElementById("password");
+
+  let logForm = document.getElementById("login-check");
+  if (!logForm.checkValidity()) {
+    logForm.reportValidity();
+    return;
+  }
+
+  let currentUser;
+  let usernameMatched = false;
+  let users = Array.from(JSON.parse(localStorage.getItem("users")) || []);
+  // console.log("users :>> ", users);
+
+  users.forEach((user) => {
+    if (user.email === email.value || user.username === email.value) {
+      usernameMatched = true;
+      if (user.password === pass.value) {
+        currentUser = user;
+        alert(`You are logged in as ${email.value}`);
+      }
+    }
+  });
+
+  if (!usernameMatched) {
+    alert(`No user registered as ${email.value}, please register.`);
+    showRegister();
+    return;
+  }
+
+  if (currentUser === undefined) {
+    if (usernameMatched) {
+      alert("Password doesn't match the username!");
+    } else {
+      alert("Wrong username or password!");
+    }
+    return;
+  }
+
+  email.value = "";
+  pass.value = "";
+
+  localStorage.setItem(
+    "loggedInUser",
+    JSON.stringify({
+      email: currentUser.email,
+      username: currentUser.username,
+      firstname: currentUser.firstname,
+      lastname: currentUser.lastname,
+      gender: currentUser.gender,
+      department: currentUser.department,
+      // password: pass1.value,
+    })
+  );
+
+  showUsers(currentUser, users);
 }
