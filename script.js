@@ -1,4 +1,8 @@
-document.getElementById("register").style.display="none";
+window.onload = logoutUser();
+
+document.getElementById("register").style.display = "none";
+document.getElementById("users").style.display = "none";
+document.getElementById("user-details").style.display = "none";
 
 function checkEmail(email) {
   var validRegex =
@@ -8,6 +12,31 @@ function checkEmail(email) {
   else return false;
 }
 
+function showRegister() {
+  const regElement = document.getElementById("register");
+  document.getElementById("login").style.display = "none";
+  document.getElementById("register-prompt").style.display = "none";
+  document.getElementById("login-prompt").style.display = "block";
+  regElement.style.display = "block";
+  document.getElementById("reg-email").focus();
+}
+
+function showLogin() {
+  document.getElementById("register").style.display = "none";
+  document.getElementById("login-prompt").style.display = "none";
+  document.getElementById("register-prompt").style.display = "block";
+  document.getElementById("login").style.display = "block";
+  document.getElementById("login-email").focus();
+}
+
+function logoutUser() {
+  showLogin();
+  document.getElementById("users").style.display = "none";
+  document.getElementById("user-details").style.display = "none";
+  localStorage.removeItem("loggedInUser");
+  const userlist = document.getElementById("users-list");
+  userlist.innerHTML = "";
+}
 function showDetails(user) {
   // console.log(user);
   document.getElementById("users").style.display = "none";
